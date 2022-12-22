@@ -4,16 +4,7 @@
     <div id="contact-area">
         <div class="container mb-5">
             <div class="row row-cols-3 gx-5 gy-5">
-                <div class="col" th:each="i : ${#numbers.sequence(1,4)}">
-                    <div class="card">
-                        <img src="img/icone.jpg" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Produto X</h5>
-                            <p class="card-text">Valor X</p>
-                            <a href="#" class="btn btn-primary">Detalhes</a>
-                        </div>
-                    </div>
-                </div>
+             
                 <div class="col" th:each="p : ${lista}">
                     <div class="card">
                         <img th:src="|image-upload/${p.foto}|" class="card-img-top" style="height: 200px; width: auto; object-fit: scale-down;">
