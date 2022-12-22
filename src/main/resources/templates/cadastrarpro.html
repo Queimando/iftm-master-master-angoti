@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html th:include="template :: modelo" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div th:fragment="conteudo">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome do Produto</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Endereço</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cdt : ${cadastrarpro}">
+                    <th scope="row" th:text="${cdt.id}"></th>
+                    <td th:text="${cdt.nome}"></td>
+                    <td th:text="${cdt.preco}"></td>
+                    <td th:text="${cdt.foto}"></td>
+                    <td th:text="${cdt.endereco}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

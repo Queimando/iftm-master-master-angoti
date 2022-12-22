@@ -1,0 +1,29 @@
+<html th:include="template :: modelo">
+    <div th:fragment="conteudo">
+        <div class="container my-5">
+            <form th:action="@{/cadastrarpro}" method="post" th:object="${promocao}" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome Produto</label>
+                    <input type="text" class="form-control" th:field="*{nomep}">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('nomep')}" th:errors="*{nomep}"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="preco" class="form-label">Preço do Produto</label>
+                    <input type="text" class="form-control" th:field="*{preco}">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="foto" class="form-label">Foto do produto</label>
+                    <input type="file" class="form-control" name="arquivo">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('foto')}" th:errors="*{foto}"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="endereco" class="form-label">Endereço </label>
+                    <input type="text" class="form-control" th:field="*{endereco}">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('endereco')}" th:errors="*{endereco}"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Gravar</button>
+            </form>
+        </div>
+    </div>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html th:include="template::modelo">
+<main th:fragment="conteudo" class="bg-light"><br>
+    <div>
+        <div>imagem</div>
+        <div class="col" th:each="prod : ${lista}">
+            <div class="card">
+                <img th:src="|image-upload/${prod.foto}|" class="card-img-top" style="height: 200px; width: auto; object-fit: scale-down;">
+                <div class="card-body">
+                    <h5 th:text="${prod.nomep}" class="card-title">Produto X</h5>
+                    <p th:text="${prod.preco}"class="card-text">Valor X</p>
+                    
+                </div>
+    </div>
+</main>
+
+
+
+</html>

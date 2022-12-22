@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html th:include="template::modelo">
+<main th:fragment="conteudo" class="container bg-light my-5">
+  <h6 th:if="${param.error}" class="my-3 alert alert-danger ">Usuario/senha inválidos</h6>
+  <form th:action="@{/login}" method="post">
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input class="form-control" type="text" name="username" placeholder="E-mail" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Senha</label>
+      <input class="form-control" type="password" name="password" placeholder="Senha" />
+    </div>
+    <input class="btn btn-primary" type="submit" value="Log in" />
+  </form>
+</main>

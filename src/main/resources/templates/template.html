@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html th:fragment="modelo">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        nav a {
+            position: relative;
+            display: inline-block;
+            margin: 5px 30px;
+            outline: none;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3em;
+            transition: 0.6s;
+        }
+        
+        .fire {
+            position: relative;
+            display: inline-block;
+            margin: 5px 30px;
+            outline: none;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3em;
+            transition: 0.6s;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            transition: 0.2s;
+            outline: none;
+            color: rgb(255, 255, 255);
+        }
+
+        .fire:hover {
+            color: rgb(255, 102, 0);
+            animation: animation 1s ease-in-out infinite alternate;
+            -moz-animation: animation 1s ease-in-out infinite alternate;
+            -webkit-animation: animation 1s ease-in-out infinite alternate;
+            -o-animation: animation 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes animation {
+            0% {
+                text-shadow: 0 0 20px #fefcc9,
+                    10px -10px 30px #feec85,
+                    -20px -20px 40px #ffae34,
+                    20px -40px 50px #ec760c,
+                    -20px -60px 60px #cd4606,
+                    0 -80px 70px #973716,
+                    10px -90px 80px #451b0e;
+            }
+
+            100% {
+                text-shadow: 0 0 20px #fefcc9,
+                    10px -10px 30px #fefcc9,
+                    -20px -20px 40px #feec85,
+                    22px -42px 60px #ffae34,
+                    -22px -58px 50px #ec760c,
+                    0 -82px 80px #cd4606,
+                    10px -90px 80px #973716;
+            }
+        }
+    </style>
+</head>
+
+<body class="">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <a href="/home" title="Página Login" class="fire">Home</a>
+                <a href="/cadastrarpro" title="Comprar" class="fire">Cadastrar Promoção</a>
+                <span class="align-self-center d-inline-block">
+                    <form class="m-0" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+                        <input class="fire btn btn-link" type="submit" value="Sair" />
+                    </form>
+                    <a href="/login" sec:authorize="!isAuthenticated()" class="fire">Login</a>
+                </span>
+                <!-- Alteração do fragmento da barra de navegação para adicionar botão de logout e saudação do usuário logado -->
+                <span class="d-inline-block col-2 text-white small" sec:authorize="isAuthenticated()" sec:authentication="name"></span>
+                <!-- Alteração do fragmento da barra de navegação para adicionar botão de logout e saudação do usuário logado -->
+            </div>
+        </div>
+    </nav>
+    <main th:replace="this :: conteudo"></main>
+    <footer class="bg-dark text-center text-white">
+        <div class="container text-white">
+            <div class="col-md-12 text-white">
+                <h3 class="main-title">Entre em contato conosco!</h3>
+            </div>
+            <div class="d-flex align-items-start">
+                <div class="col-md-4 contact-box">
+                    <p class=" text-white"><span class="contact-title">Ligue para:</span>(34)9 9880-2552</p>
+                </div>
+                <div class="col-md-4 contact-box">
+                    <p class="text-white"><span class="contact-title">envie um e-mail para: </span>queimandoiftm@gmail.com</p>
+                </div>
+                <div class="col-md-4 contact-box">
+                    <p class=" text-white"><span class="contact-title">Venha toma um café: </span>Rua do cabideiro - 157 - Bairro Planalto</p>
+                </div>
+            </div>
+            <div class="text-center text-white p-3">
+                © 2020 Copyright:
+                <a class="text-white" href="#">Deselvolvido por AL-Ezron tecnologia</a>
+            </div>
+        </div>
+
+    </footer>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+
+</html>
